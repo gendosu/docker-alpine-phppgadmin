@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  #
+  # メインコンテナ
+  #
+  main:
+    build: .
+
+    ports:
+      - 80:80
+      - 443:443
