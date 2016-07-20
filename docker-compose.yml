@@ -7,6 +7,20 @@ services:
   main:
     build: .
 
+    links:
+      - "database:database"
+
+    environment:
+      - "PG_HOST=database"
+
     ports:
       - 80:80
       - 443:443
+
+  database:
+    image: postgres
+    environment:
+      - "POSTGRES_USER=root"
+      # - "POSTGRES_PASSWORD=root"
+    ports:
+      - "5432:5432"
